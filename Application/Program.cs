@@ -8,7 +8,9 @@ using Application.Windows.Main;
 using Application.Windows.Main.Contracts;
 using ConnectionPool.Core.Contracts;
 using ConnectionPool.Playwright;
+using ConnectionPool.StartUp;
 using Downloader.Core;
+using Downloader.StartUp;
 using Downloader.TikTok;
 using Downloader.Twitter;
 using History.Core;
@@ -19,8 +21,10 @@ using Microsoft.Extensions.Hosting;
 using Uploader.Core;
 using Uploader.Core.Contracts;
 using Uploader.Playwright.Youtube;
+using Uploader.StartUp;
 using User.Core.Contracts;
 using User.Json;
+using User.StartUp;
 
 namespace Application;
 
@@ -49,22 +53,16 @@ public class Program : System.Windows.Application
 
                 #endregion
 
-                services.AddSingleton<ILoginManager, LoginManager>();
-                services.AddSingleton<TikTokDownloader>();
-                services.AddSingleton<TwitterDownloader>();
-                services.AddSingleton<HistoryPool>();
-                services.AddSingleton<DownloaderManager>(x =>
-                    new DownloaderManager(x.GetRequiredService<TikTokDownloader>(),
-                        x.GetRequiredService<TwitterDownloader>(),
-                        x.GetRequiredService<HistoryPool>()));
-                services.AddSingleton<IUploader, PlaywrightUploader>();
-                services.AddSingleton<PlaywrightUploader>();
+                #region Features
 
-                services.AddSingleton<IUserProvider, UserProvider>();
-                services.AddSingleton<IUserManager, UserManager>();
+                services.AddDownloadFeature();
+                services.AddConnectionPoolFeature();
+                services.AddUploadFeature();
+                services.AddUserFeature();
 
-                services.AddSingleton<IConnectionFactory, ConnectionFactory>();
-                services.AddSingleton<IConnectionPoolManager, ConnectionPoolManager>();
+                #endregion
+
+
             });
 
         #region FileController

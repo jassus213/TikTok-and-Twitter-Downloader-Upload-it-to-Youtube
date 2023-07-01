@@ -23,14 +23,18 @@
 
     <ItemGroup>
         <ProjectReference Include="..\ConnectionPool.Playwright\ConnectionPool.Playwright.csproj" />
+        <ProjectReference Include="..\ConnectionPool.StartUp\ConnectionPool.StartUp.csproj" />
         <ProjectReference Include="..\Downloader.Core\Downloader.Core.csproj" />
+        <ProjectReference Include="..\Downloader.StartUp\Downloader.StartUp.csproj" />
         <ProjectReference Include="..\Downloader.TikTok\Downloader.TikTok.csproj" />
         <ProjectReference Include="..\Downloader.Twitter\Downloader.Twitter.csproj" />
         <ProjectReference Include="..\History.Core\History.Core.csproj" />
         <ProjectReference Include="..\Login.Gmail\Login.Gmail.csproj" />
         <ProjectReference Include="..\Uploader.Playwright.Youtube\Uploader.Playwright.Youtube.csproj" />
+        <ProjectReference Include="..\Uploader.StartUp\Uploader.StartUp.csproj" />
         <ProjectReference Include="..\Uploader.YouTubeApi\Uploader.YouTubeApi.csproj" />
         <ProjectReference Include="..\User.Json\User.Json.csproj" />
+        <ProjectReference Include="..\User.StartUp\User.StartUp.csproj" />
     </ItemGroup>
 
     <ItemGroup>
