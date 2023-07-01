@@ -4,13 +4,14 @@ using Google.Apis.Services;
 using Google.Apis.Upload;
 using Google.Apis.YouTube.v3;
 using Uploader.Core.Contracts;
+using User.Core.Contracts;
 
 namespace Uploader.YouTubeApi
 {
     public class YoutubeUploader : IUploader
     {
         [Obsolete("Obsolete")]
-        public async Task UploadAsync(Video.Core.Entites.Video videoInfo, string videoPath)
+        public async Task UploadAsync(Video.Core.Entities.Video videoInfo, string videoPath)
         {
             var video = VideoMapper.Map(videoInfo);
             

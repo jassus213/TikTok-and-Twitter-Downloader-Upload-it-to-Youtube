@@ -1,4 +1,4 @@
-﻿namespace Video.Core.Entites;
+﻿namespace Video.Core.Entities;
 
 public class VideoSnippet
 {

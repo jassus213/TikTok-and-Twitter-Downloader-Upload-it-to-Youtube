@@ -14,6 +14,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Uploader.Core\Uploader.Core.csproj" />
+      <ProjectReference Include="..\User.Core\User.Core.csproj" />
     </ItemGroup>
 
 </Project>

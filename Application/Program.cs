@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using Application.App;
 using Application.Pages;
 using Application.Pages.VideoEditor;
@@ -86,6 +87,23 @@ public class Program : System.Windows.Application
 
         #endregion
 
+        #region ConnectionPoolInitiailize
+
+        var connectionPoolManager = build.Services.GetService<IConnectionPoolManager>();
+        var userProvider = build.Services.GetService<IUserProvider>();
+
+        var userSecretEntity = userProvider!.ReadInfo();
+        if (userSecretEntity.Login != string.Empty && userSecretEntity.Password != string.Empty)
+            TrySetConnection(connectionPoolManager, userSecretEntity.Login, userSecretEntity.Password);
+
+        #endregion
+
         app?.Run();
+    }
+
+
+    private static async Task TrySetConnection(IConnectionPoolManager connectionPoolManager, string login, string password)
+    {
+        await connectionPoolManager.CreateConnectionAsync(login, password);
     }
 }

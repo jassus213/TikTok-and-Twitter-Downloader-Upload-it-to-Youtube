@@ -4,7 +4,7 @@ namespace Uploader.YouTubeApi;
 
 public static class VideoMapper
 {
-    public static Google.Apis.YouTube.v3.Data.Video Map(Video.Core.Entites.Video video)
+    public static Google.Apis.YouTube.v3.Data.Video Map(Video.Core.Entities.Video video)
     {
         return new Google.Apis.YouTube.v3.Data.Video()
         {

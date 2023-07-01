@@ -20,7 +20,7 @@ public class PlaywrightUploader : IUploader
         _connectionFactory = connectionFactory;
     }
 
-    public async Task UploadAsync(Video.Core.Entites.Video videoInfo, string videoPath)
+    public async Task UploadAsync(Video.Core.Entities.Video videoInfo, string videoPath)
     {
         var secret = await _userProvider.ReadInfoAsync();
         var youtubeStudioUrl = $"https://studio.youtube.com/channel/{secret!.ShortUrl}/videos/upload";
@@ -56,7 +56,7 @@ public class PlaywrightUploader : IUploader
     }
 
 
-    private async Task<IPage> UploadVideoInformationAsync(IPage page, Video.Core.Entites.Video videoInfo)
+    private async Task<IPage> UploadVideoInformationAsync(IPage page, Video.Core.Entities.Video videoInfo)
     {
         await page.Locator(
                 "//div[@aria-label='Add a title that describes your video (type @ to mention a channel)']")

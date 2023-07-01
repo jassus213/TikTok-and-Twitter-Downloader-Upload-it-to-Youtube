@@ -4,6 +4,7 @@ using Application.Pages.VideoEditor.Contracts;
 using Uploader.Core;
 using Uploader.Core.Contracts;
 using Video.Core;
+using Video.Core.Factories;
 
 namespace Application.Pages.VideoEditor;
 

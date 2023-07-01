@@ -1,6 +1,6 @@
-﻿using Video.Core.Entites;
+﻿using Video.Core.Entities;
 
-namespace Video.Core
+namespace Video.Core.Factories
 {
     public static class SnippetFactory
     {
